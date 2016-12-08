@@ -1,4 +1,4 @@
-mercadito/settings.py
+#mercadito/settings.py
 *.log
 *.pot
 *.pyc
