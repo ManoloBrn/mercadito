@@ -11,3 +11,5 @@ class Producto(models.Model):
     images = models.FileField(upload_to="uploads/")
     vendedor = models.ForeignKey(User, related_name="producto_vendedor")
     
+    def __str__(self):
+        return self.name
