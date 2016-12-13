@@ -14,8 +14,8 @@ class Address(models.Model):
         return self.addressOne
     
 
-class InfoUser(models.Model):
-    user = models.ForeignKey(User, related_name="user_info")
+class InfoUser(AbstractUser):
+    #user = models.ForeignKey(User, related_name="user_info")
     telephone = models.CharField(max_length=18)
     businessName = models.CharField(max_length=20, blank=True)
     images = models.FileField(upload_to="/uploads")

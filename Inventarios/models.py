@@ -9,7 +9,7 @@ class Producto(models.Model):
     quantity = models.IntegerField(default=0)
     category = models.CharField(max_length=30, blank=False)
     images = models.FileField(upload_to="uploads/")
-    vendedor = models.ForeignKey(User, related_name="producto_vendedor")
+    #vendedor = models.ForeignKey(User, related_name="producto_vendedor")
     
     def __str__(self):
         return self.name
