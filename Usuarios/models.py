@@ -16,10 +16,10 @@ class Address(models.Model):
 
 class InfoUser(AbstractUser):
     #user = models.ForeignKey(User, related_name="user_info")
-    telephone = models.CharField(max_length=18)
+    telephone = models.CharField(max_length=18, blank=True)
     businessName = models.CharField(max_length=20, blank=True)
-    images = models.FileField(upload_to="/uploads")
-    address = models.ForeignKey(Address, related_name="user_address")
+    images = models.FileField(upload_to="/uploads", blank=True)
+    address = models.ForeignKey(Address, related_name="user_address", default=1)
     
     def __string__(self):
         return self.user.email
