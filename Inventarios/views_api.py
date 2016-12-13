@@ -12,6 +12,12 @@ class ProductosList(viewsets.ViewSet):
         return Response(serializer.data)
         
 class ProductosCreate(generics.CreateAPIView):
-    
     serializer_class = ProductoSerializer
     
+class ProductoUsuario(generics.ListAPIView):
+    queryset = Producto.objects
+    def get(self,request, pk, format=None):
+        self.queryset = self.queryset.filter(vendedor=int(pk))
+        serializer = ProductoSerializer(self.get_queryset(), many=True)
+        
+        return Response(serializer.data)
