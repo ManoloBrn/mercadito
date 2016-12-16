@@ -12,3 +12,9 @@ class AddressSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Address 
 		fields = "__all__"
+
+class UsuariosSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = InfoUser
+		fields = "__all__"
+
