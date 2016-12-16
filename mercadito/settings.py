@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'Inventarios',
-    'Usuarios'
+    'Usuarios',
+    "Transacciones"
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -121,5 +122,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/uploads/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "uploads"),
+    
+]
+STATIC_ROOT = os.path.abspath("")
+MEDIA_ROOT = os.path.abspath("uploads/")
 AUTH_USER_MODEL="Usuarios.InfoUser"

@@ -15,7 +15,7 @@ class Address(models.Model):
     
 
 class InfoUser(AbstractUser):
-    #user = models.ForeignKey(User, related_name="user_info")
+   
     telephone = models.CharField(max_length=18, blank=True)
     businessName = models.CharField(max_length=20, blank=True)
     images = models.FileField(upload_to="/uploads", blank=True)
