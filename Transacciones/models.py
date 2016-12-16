@@ -4,7 +4,7 @@ from mercadito import settings
 
 # Create your models here.
 class Bill(models.Model):
-    estado = models.CharField(max_length=30, blank=False)
+    estado = models.CharField(max_length=30, blank=True, default="Pago pendiente")
     payment_method = models.CharField(max_length=30, blank=False)
     date_added = models.DateTimeField(auto_now_add=True)
 
