@@ -13,7 +13,7 @@ class Bill(models.Model):
     vendedor = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="store_bill")
     
     def __str__(self):
-        return self.client.name
+        return str(self.id)
 
 class Item(models.Model):
     quantity = models.IntegerField(blank=False, default=0)
@@ -24,4 +24,4 @@ class Item(models.Model):
     product = models.ForeignKey(Producto, related_name="product_item")
     
     def __str__(self):
-        return self.product.name
+        return "Bill #" +str(self.bill.id)
