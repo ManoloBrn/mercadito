@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import generics
+from rest_framework.views import APIView
 from .models import *
 from Inventarios.models import Producto
 from Usuarios.models import InfoUser
@@ -35,5 +36,14 @@ class BillData(generics.CreateAPIView):
     	return Response("Producto Creado")
 
     	#return Response("Error")
+class BillList(generics.ListAPIView):
+	queryset=Item.objects.all()
+	serializer_class = ItemSerializer
     
+class BillIdList(APIView):
     
+    def get(self,request, pk, format=None):
+        items = Item.objects.filter(bill__id=pk)
+        serializer = ItemSerializer(items, many=True)
+        
+        return Response(serializer.data)

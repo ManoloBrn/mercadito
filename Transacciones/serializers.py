@@ -9,9 +9,9 @@ class BillSerializer(serializers.ModelSerializer):
         
         
 class ItemSerializer(serializers.ModelSerializer):
-    bill_items = BillSerializer(many = False, read_only=False)
+    bill_items = BillSerializer(source="bill",many = False, read_only=False)
     class Meta:
         model = Item
-        fields = ["quantity","product","bill_items"]
+        fields = ["id","quantity", "subtotal","product","bill_items"]
         
 
